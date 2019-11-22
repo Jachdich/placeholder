@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content%}
+{% for post in posts %}
+<div class="jumbotron">
+    <legend class="border-bottom mb-4">
+        {{ post.title }}
+    </legend>
+    <p>
+        <div class="float-left">By: {{ post.channel }}</div>
+        <div class="float-right">Published On: {{ post.upload_date }}</div><br>
+    </p>
+    <p class="text-muted">
+        {{ post.content }}
+    </p>
+</div>
+{% endfor %}
+{% endblock content %}
