@@ -8,6 +8,7 @@
 3. SQLAlchemy (pip install flask-sqlalchemy)
 4. Bcrypt (pip install bcrypt)
 5. Flask Login (pip install flask-login)
+6. Flask-Mail
 
 ### What's New
 1. Broke down app.py into a packaged structure
