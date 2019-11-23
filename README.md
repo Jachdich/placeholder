@@ -3,11 +3,11 @@
 ## Alpha version 0.1 of NYT(U)
 
 ### You need to install:
-1. Flask (pip install flask)
-2. Flask Forms (pip install flask-wtf)
-3. SQLAlchemy (pip install flask-sqlalchemy)
-4. Bcrypt (pip install bcrypt)
-5. Flask Login (pip install flask-login)
+1. Flask 
+2. Flask Forms 
+3. SQLAlchemy 
+4. Bcrypt 
+5. Flask Login 
 6. Flask-Mail
 
 ### What's New
