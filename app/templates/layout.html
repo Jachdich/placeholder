@@ -32,14 +32,14 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/subs">Subscriptions</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/upload/new">Upload</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>

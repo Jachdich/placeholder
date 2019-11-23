@@ -3,14 +3,12 @@
 {% for post in posts %}
 <div class="jumbotron">
     <legend class="border-bottom mb-4">
-        {{ post.title }}
+        <a href="{{ url_for('post', post_id=post.id) }}"> {{ post.title }} </a> 
     </legend>
     <p>
-        <div class="float-left">By: {{ post.channel }}</div>
-        <div class="float-right">Published On: {{ post.upload_date }}</div><br>
-    </p>
-    <p class="text-muted">
-        {{ post.content }}
+            <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" width="30px" align=left>
+        <div class="float-left" style="padding-left: 5px;">{{ post.author.username }}</div>
+        <div class="float-right">Published On: {{ post.upload_date.strftime('%d-%m-%Y') }}</div><br>
     </p>
 </div>
 {% endfor %}
