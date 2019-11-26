@@ -10,12 +10,12 @@
 6. Flask-Mail
 
 ### What's New (from v0.1)
-1. Route for new password (reset_pass) [Not to be confused with the forgot password route]
+1. Route for new password - *reset_pass* [Not to be confused with the forgot password route]
 
 ### Known Bugs
-[x] ~~Updating profile picture changes every user's profile picture.~~ (Fixed)
-[x] ~~Can't save the updated profile picture in static/profile_pics and thus the changed PFP doesn't show up.~~ (Fixed)
-[ ] Database doesn't update the password when the form in reset_pass(not to be confused with reset_password) route is validated.
+1. [x] ~~Updating profile picture changes every user's profile picture.~~ (Fixed)
+2. [x] ~~Can't save the updated profile picture in static/profile_pics and thus the changed PFP doesn't show up.~~ (Fixed)
+3. [ ] Database doesn't update the password when the form in reset_pass(not to be confused with reset_password) route is validated.
 
 ### How to Run
 -> Move these files to the directory where your virtual environment is located.
