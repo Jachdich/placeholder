@@ -1,13 +1,19 @@
 {% extends "layout.html" %}
 {% block content%}
 {% for post in posts %}
-<div class="jumbotron">
+<div class="jumbotron float-left" style="width: 31%; margin-right: 2%; padding: 25px;">
     <legend class="border-bottom mb-4">
-        <a href="{{ url_for('post', post_id=post.id) }}"> {{ post.title }} </a> 
+        <a href="{{ url_for('post', post_id=post.id) }}"><img
+                src="{{ url_for('static', filename='thumbs/thumbnail.jpg') }}" style="width: 100%; border-radius: 15px;"
+                class="mb-2"></a>
+        <a href="{{ url_for('post', post_id=post.id) }}"> {{ post.title }} </a>
     </legend>
     <p>
-            <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}" width="30px" align=left>
-        <div class="float-left" style="padding-left: 5px;">{{ post.author.username }}</div>
+        <a href="{{ url_for('user', username=post.author.username) }}">
+            <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}"
+                width="30px" align=left>
+            <div class="float-left" style="padding-left: 5px;" style="color: black;">{{ post.author.username }}</div>
+        </a>
         <div class="float-right">Published On: {{ post.upload_date.strftime('%d-%m-%Y') }}</div><br>
     </p>
 </div>

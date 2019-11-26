@@ -51,8 +51,6 @@ class UpdateAccountForm(FlaskForm):
 
 class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    video = FileField('Upload the Video', validators=[FileAllowed(['mp4', 'avi', 'mov', 'mkv', 'wmv'])])
-    thumbnail = FileField('Upload Thumbnail', validators=[FileAllowed(['jpg', 'png'])])
     content = TextAreaField('Description', validators=[DataRequired()])
     submit = SubmitField('Upload')
 
