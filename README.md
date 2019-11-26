@@ -1,7 +1,6 @@
 # New YouTube (untitled)
 
-## Alpha version 0.1 of NYT(U)
-
+## Buggy version
 ### You need to install:
 1. Flask 
 2. Flask Forms 
@@ -10,18 +9,23 @@
 5. Flask Login 
 6. Flask-Mail
 
-### What's New
-1. Broke down app.py into a packaged structure
-2. Routes for Login/Register/Logout/Profile
-3. SQL Database
-4. Validation & Authentication for users
+### What's New (from v0.1)
+1. Seperate Profile routes with all their posts
+2. Thubnails
+3. UI Improvements
+
+### Known Bugs
+1. [x] ~~Updating profile picture changes every user's profile picture.~~ (Fixed.)
+2. [ ] Can't save the updated profile picture in static/profile_pics and thus the changed PFP doesn't show up.
 
 ### How to Run
 -> Move these files to the directory where your virtual environment is located.
+
   |
-  --> e.g. If you have a dir, 'nyt' with your venv instaled IN IT, paste these files into 'nyt'.
+  
+  --> e.g. If you have a dir, 'nyt' with your venv installed IN IT, paste these files into 'nyt'.
+  
 -> Boot up your virtual environment and type "python run.py" to run in debug mode.
+
 -> Boot up your web browser and type the URL, "localhost:5000/"
 
-### Latest Contributors
-1. Ashmit21
