@@ -37,14 +37,18 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            {{ current_user.username }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-header">User: {{ current_user.username }} </div> 
+                            <a class="dropdown-item" href="/user/{{ current_user.username }}">View Profile</a>
+                            <a class="dropdown-item" href="/logout">Log out</a>
+                        </div>
+                      </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/upload/new">Upload</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">Log out</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -84,8 +88,12 @@
                             <li class="list-group-item list-group-item-light" style="background-color: #eee;">Home</li>
                         </a>
                         {% if current_user.is_authenticated %}
-                        <a href="/profile" style="text-decoration: none;">
+                        <a href="/user/{{ current_user.username }}" style="text-decoration: none;">
                             <li class="list-group-item list-group-item-light" style="background-color: #eee;">Profile
+                            </li>
+                        </a>
+                        <a href="/profile" style="text-decoration: none;">
+                            <li class="list-group-item list-group-item-light" style="background-color: #eee;">Edit Profile
                             </li>
                         </a>
                         <a href="/logout" style="text-decoration: none;">

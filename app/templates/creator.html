@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- default account picture by: <a target="_blank" href="/icons/set/circled-user">Circled User icon</a> by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+<div class="jumbotron">
+  <div class="media" style="border: 1px solid #b1a5a5; border-radius: 25px; padding: 2%; background-color: #eee;">
+    <img class="rounded-circle account-img" src="{{ image_file }}" width="100px" align="left"> &nbsp; &nbsp; &nbsp;
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username }}</h2>
+      <div class="text-muted">{{ user.description }}</div>
+      {% if current_user.username == user.username  %}
+      <a href="{{ url_for('profile') }}" class="btn btn-info btn-sm">Edit Profile</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% for post in user.posts %}
+
+<div class="jumbotron float-left" style="width: 44%; margin-left: 3%;">
+  <legend class="border-bottom mb-4">
+    <a href="{{ url_for('post', post_id=post.id) }}"> {{ post.title }} </a>
+  </legend>
+  <p>
+    <div class="float-left">Published On: {{ post.upload_date.strftime('%d-%m-%Y') }}</div><br>
+  </p>
+</div>
+{% endfor %}
+{% endblock content %}
