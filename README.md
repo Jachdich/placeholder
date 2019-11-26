@@ -20,6 +20,7 @@
 
 ### How to Run
 -> Move these files to the directory where your virtual environment is located.
+
         *e.g. If you have a dir, 'nyt' with your venv installed IN IT, paste these files into 'nyt'.*
   
 -> Boot up your virtual environment and type "python run.py" to run in debug mode.
