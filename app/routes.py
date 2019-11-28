@@ -2,7 +2,7 @@ import os
 import secrets
 from flask import render_template, url_for, flash, redirect, request, abort
 from app import app, db, Bcrypt, mail
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm, ResetPassForm
 from app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -87,6 +87,16 @@ def profile():
     return render_template('profile.html', title='Profile',
                            image_file=image_file, form=form)
 
+
+def save_thumbnail(form_thumbnail):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_thumbnail.filename)
+    thumbnail_fn = random_hex + f_ext
+    thumbnail_path = os.path.join(app.root_path, 'static/thumbs', thumbnail_fn)
+    form_thumbnail.save(thumbnail_path)
+    
+    return thumbnail_fn
+
 @app.route('/upload/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -159,6 +169,19 @@ def reset_request():
         return redirect(url_for('login'))
     return render_template('reset_request.html', title='Reset Password', form=form)
 
+@app.route("/reset_pass", methods=['GET', 'POST'])
+@login_required
+def reset_pass():
+    form = ResetPassForm()
+    if form.validate_on_submit():
+        user = current_user
+        if user and bcrypt.check_password_hash(user.password, form.old_password.data):
+            hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+            user.password = hashed_password
+            db.session.commit()
+            flash('Your password has been updated!', 'success')
+            return redirect(url_for('home'))
+    return render_template('reset_pass.html', title='Reset Password', form=form)
 
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
